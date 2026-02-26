@@ -1,0 +1,35 @@
+{
+  "name": "content-publishing-system",
+  "version": "1.0.0",
+  "description": "it is content publishing system backend",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laradesu/contentpublishingsystem.git"
+  },
+  "author": "desalegn birhanu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laradesu/contentpublishingsystem/issues"
+  },
+  "homepage": "https://github.com/laradesu/contentpublishingsystem#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
+    "joi": "^18.0.2",
+    "jsonwebtoken": "^9.0.3",
+    "nodemon": "^3.1.14",
+    "path": "^0.12.7",
+    "pg": "^8.19.0",
+    "sequelize": "^6.37.7"
+  }
+}
