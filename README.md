@@ -27,3 +27,6 @@ NODE_ENV=development
 JWT_SECRET=supersecretkey
 run backend
 npm run dev/start
+
+ backend runs at
+ http://localhost:4000
