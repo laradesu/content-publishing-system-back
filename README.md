@@ -30,3 +30,24 @@ npm run dev/start
 
  backend runs at
  http://localhost:4000
+🏗 Architecture Overview
+📂 Project Structure
+ ├── backend/
+│   ├── routes/
+│   ├── services/
+│   ├── models/
+│   └── middlewares/
+------server.js
+-----constants
+----.env
+----utils
+----config
+----migration
+
+Architecture Pattern Used
+
+Backend follows:
+server.js(entry)routes → Service → Model pattern
+Separation of concerns
+Reusable service layer
+Centralized validation
