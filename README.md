@@ -228,8 +228,31 @@ Indexes
 
 Unique index on email
 
+
+
 Unique index on username
 
 Security
 Password is automatically hashed using Sequelize hooks (beforeCreate, beforeUpdate)
 Scope allows optional password retrieval when required
+
+Database migrations / seeding scripts
+Install Sequelize CLI (if not installed)
+
+Inside your backend folder:
+
+npm install --save-dev sequelize-cli
+Create Migration for Authors Table
+npx sequelize-cli migration:generate --name create-authors-table
+Create Migration for Articles Table
+npx sequelize-cli migration:generate --name create-articles-table
+Run Migrations
+npx sequelize-cli db:migrate
+Undo Migration (If Needed)
+
+Undo last migration:
+
+npx sequelize-cli db:migrate:undo
+Undo all:
+
+npx sequelize-cli db:migrate:undo:all
