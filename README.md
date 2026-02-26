@@ -94,3 +94,42 @@ response
 }
 Delete Article
 delete http://localhost:6000/API/v1.0.0/article/delete_article/2
+
+
+🔹 Create Author
+POST (http://localhost:6000/API/v1.0.0/author/createAuthor)
+Request Body:
+{
+"name":"Desalegn",
+"email":"desu@gmail.com"
+}
+Response
+{
+  "success": true,
+  "data": {...}
+}
+
+Get All Articles
+get http://localhost:4000/API/v1.0.0/author/getAuthors
+
+Update Article
+put (http://localhost:6000/API/v1.0.0/author/updateAuthor/1)
+request
+{
+    "name": "desalegn",
+    "email": "desu@gmail.com"
+}
+response
+{
+    "success": true,
+    "message": "Author updated successfully",
+    "data": {
+        "id": 1,
+        "name": "desalegn",
+        "email": "desu@gmail.com",
+        "createdAt": "2026-02-26T08:08:03.819Z",
+        "updatedAt": "2026-02-26T08:09:23.355Z"
+    }
+}
+Delete Article
+delete http://localhost:6000/API/v1.0.0/author/deleteAuthor/1
