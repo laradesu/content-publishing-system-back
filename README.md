@@ -133,3 +133,103 @@ response
 }
 Delete Article
 delete http://localhost:6000/API/v1.0.0/author/deleteAuthor/1
+
+
+Database Schema Description
+
+The application uses PostgreSQL with Sequelize ORM.
+All tables use:
+underscored: true
+timestamps: true (created_at, updated_at)
+Indexed foreign keys where needed
+Authors Table (authors)
+
+Stores article creators.
+Columns
+Column	Type	Constraints	Description
+id	INTEGER	PK, Auto Increment	Unique author ID
+name	VARCHAR(255)	NOT NULL	Author full name
+email	VARCHAR(255)	NOT NULL, UNIQUE	Author email
+created_at	TIMESTAMP	Auto	Creation timestamp
+updated_at	TIMESTAMP	Auto	Update timestamp
+Relationships
+
+One Author → Many Articles
+(Author.hasMany(Article))
+Cascade Rule
+If an author is deleted:
+ON DELETE CASCADE
+All their articles are deleted automatically.
+
+Articles Table (articles)
+
+Stores published and draft articles.
+Columns
+Column	Type	Constraints	Description
+id	INTEGER	PK, Auto Increment	Unique article ID
+title	VARCHAR(500)	NOT NULL	Article title
+body	VARCHAR(500)	NULL	Article content
+tags	TEXT[]	NOT NULL	Array of tags
+is_published	BOOLEAN	Default: false	Publish status
+author_id	INTEGER	NOT NULL, FK	Linked author
+created_at	TIMESTAMP	Auto	Creation date
+updated_at	TIMESTAMP	Auto	Update date
+Indexes
+
+Index on author_id
+
+Index on is_published
+
+Relationships
+
+Many Articles → One Author
+(Article.belongsTo(Author))
+Design Decision
+Tags are stored as:
+TEXT[]
+(PostgreSQL Array Type)
+This simplifies development by avoiding a join table.
+
+Login Table (logins)
+
+Handles authentication credentials.
+
+Columns
+Column	Type	Constraints	Description
+id	INTEGER	PK	Unique login ID
+username	VARCHAR(255)	UNIQUE	Username
+password	VARCHAR(255)	Hashed	Encrypted password
+is_active	BOOLEAN	Default: true	Account status
+created_at	TIMESTAMP	Auto	Created time
+updated_at	TIMESTAMP	Auto	Updated time
+Security
+Passwords are hashed using bcrypt
+Default scope excludes password from queries
+Unique index on username
+
+Register Table (registers)
+
+Stores registered users.
+
+Columns
+Column	Type	Constraints	Description
+id	INTEGER	PK	User ID
+title	VARCHAR(255)	NULL	Optional title
+full_name	VARCHAR(255)	NULL	Full name
+email	VARCHAR(255)	UNIQUE	Email address
+phone_number	VARCHAR(255)	NOT NULL	Phone
+username	VARCHAR(255)	UNIQUE	Username
+password	VARCHAR(255)	NOT NULL	Hashed password
+is_active	BOOLEAN	Default: true	Account status
+created_at	TIMESTAMP	Auto	Created time
+updated_at	TIMESTAMP	Auto	Updated time
+
+Indexes
+
+Unique index on email
+
+Unique index on username
+
+Security
+Password is automatically hashed using Sequelize hooks (beforeCreate, beforeUpdate)
+Scope allows optional password retrieval when required
