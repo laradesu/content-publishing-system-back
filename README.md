@@ -7,7 +7,7 @@ Express
 PostgreSQL (Sequelize)
 ⚙️ Setup Instructions
 1️⃣ Clone the Repository
-git clone https://github.com/YOUR_USERNAME/content-publishing-system-back.git
+git clone https://github.com/laradesu/content-publishing-system-back.git
 cd content-publishing-system-back
 
 How to Run the Project
