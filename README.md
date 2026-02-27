@@ -7,7 +7,7 @@ Express
 PostgreSQL (Sequelize)
 ⚙️ Setup Instructions
 1️⃣ Clone the Repository
-git clone https://github.com/YOUR_USERNAME/content-publishing-system-back.git
+git clone https://github.com/laradesu/content-publishing-system-back.git
 cd content-publishing-system-back
 
 How to Run the Project
@@ -54,7 +54,7 @@ Centralized validation
 
 API Documentation
 🔹 Create Article
-POST [/api/articles](http://localhost:6000/API/v1.0.0/article/createArticle)
+POST [/api/articles](http://localhost:4000/API/v1.0.0/article/createArticle)
 Request Body:
 {
   "title": "Article Title",
@@ -73,7 +73,7 @@ Get All Articles
 http://localhost:4000/API/v1.0.0/article/get_all_articles
 
 Update Article
-put http://localhost:6000/API/v1.0.0/article/update_article/2
+put http://localhost:4000/API/v1.0.0/article/update_article/2
 request
 {
     "is_published": false
@@ -93,11 +93,11 @@ response
     }
 }
 Delete Article
-delete http://localhost:6000/API/v1.0.0/article/delete_article/2
+delete http://localhost:4000/API/v1.0.0/article/delete_article/2
 
 
 🔹 Create Author
-POST (http://localhost:6000/API/v1.0.0/author/createAuthor)
+POST (http://localhost:4000/API/v1.0.0/author/createAuthor)
 Request Body:
 {
 "name":"Desalegn",
@@ -113,7 +113,7 @@ Get All Articles
 get http://localhost:4000/API/v1.0.0/author/getAuthors
 
 Update Article
-put (http://localhost:6000/API/v1.0.0/author/updateAuthor/1)
+put (http://localhost:4000/API/v1.0.0/author/updateAuthor/1)
 request
 {
     "name": "desalegn",
@@ -132,7 +132,7 @@ response
     }
 }
 Delete Article
-delete http://localhost:6000/API/v1.0.0/author/deleteAuthor/1
+delete http://localhost:4000/API/v1.0.0/author/deleteAuthor/1
 
 
 Database Schema Description
